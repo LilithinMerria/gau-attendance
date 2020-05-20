@@ -1,0 +1,41 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta charset = 'UTF-8'>
+    <title>Javascript Output</title>
+</head>
+<body>
+    <h1 id= 'output'>Trying out some output</h1>
+    <h2 id= 'heya'>I love you</h2>
+    <p>Elaria elana elanes</p>
+    <script>
+        //alert("Please click here");
+        var name;
+        name = prompt("Enter your name: ");
+        document.getElementById('output').innerHTML='Like I said, trying out some output';
+        document.write(document.baseURI+"<br>");
+        document.write("<h1>" + name + "</h1>");
+        document.write(document.title+ "<br>");
+        var copy = document.getElementsByTagName('p');
+        document.write(copy + "<br>");
+        document.write(copy.length);
+        
+        
+        
+    </script>
+    
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

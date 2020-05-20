@@ -1,0 +1,14 @@
+.hide{
+    display: none;
+}
+.seek{
+    display: block;
+}
+button{
+    width: 120px;
+    background-color: lightskyblue;
+    color: black;
+}
+p{
+    background-color: aqua;
+}
