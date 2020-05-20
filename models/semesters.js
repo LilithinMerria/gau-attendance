@@ -5,12 +5,12 @@ const semesterSchema = new Schema({
     semesterStart: {
         type: Date,
         required: true,
-        unique: true
+        
     },
     semesterEnd: {
         type: Date,
         required: true,
-        unique: true
+        
         
     }
     

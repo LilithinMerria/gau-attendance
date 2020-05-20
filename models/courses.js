@@ -10,7 +10,7 @@ const courseSchema = new Schema({
     courseName: {
         type: String,
         required: true,
-        unique: true
+        
     },
     semester: {
         type: String,
