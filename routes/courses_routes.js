@@ -9,7 +9,7 @@ courseRouter.use(bodyParser.json());
 
 courseRouter.route('/')
 .get((req, res, next) =>{
-    Lecturer.find({})
+    Course.find({})
     .then((course) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
