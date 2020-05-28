@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src = "javascripts/form.js"></script>
+    <title>Form</title>
+</head>
+<body>
+    <form>
+    <legend>My Information</legend>
+    <label for="name">Name and Surname</label>
+    <input type="text" id="name" placeholder="name and surname"><br/>
+    <label for ="birth">Birthday</label>
+    <input type="date" id="birth" value="your birthday"><br/>
+    <label for="region">Region Code</label>
+    <input type="text" id="region" name="region" pattern=[0-9]{7} placeholder="at least 7 characters" required><br/>
+    <label for="email">Email: <input type="email" id='emailCheck' placeholder="me@me.com" required><br/>
+    </label>
+    <label for="email2">Repeat Email:<input type="email" id='emailRecheck' required onchange="return formCheck()">
+    </label>
+    <input type="submit" id="submit" value="Submit" onclick="return formCheck();">
+    Favourite Flower :<br/>
+    <label><input type="checkbox" id="check" value=""
+    </form>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+
+body{
+  margin: 0px;
+  }
+
+header{
+  padding: 20px;
+  border: 0px;
+  border-bottom: 1px #A9A9A9 solid;
+}
+
+#navigation li{
+  width: 20%;
+  list-style: none;
+  float: left;
+  font-family: helvetica, fantasy, sans-serif;
+  text-align: center;
+  color: gray;
+  height: 30px;
+  margin-top: 0px;
+  position: relative;
+  bottom: 17px;
+}
+
+/*#navigation li:hover{
+  text-decoration: underline;
+  color: gray;
+}*/
+
+#form a:active{
+  color: #79CDCD;
+}
+
+#form a:visited {
+  color: purple;
+}
+
+#form {
+  width: 30%;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  clear: left;
+}
+
+h1 {
+  color: #79CDCD;
+  text-align: center;
+}
+
+#form input {
+  border: 0px;
+  border-bottom: 1px #A9A9A9 dashed;
+  padding: 10px;
+  color: #A9A9A9;
+  width: 70%;
+  margin: 10px 0px 0px 12%;
+  font-family: 'Century Gothic';
+}
+
+#form input:focus, #form input:hover {
+  border: 1px #79CDCD solid;
+}
+
+#form button {
+  background-color: #79CDCD;
+  border: 0px;
+  border-radius: 2px;
+  color: white;
+  font-size: 0.9em;
+  padding: 10px 20px;
+  margin: 15px 0px 0px 12%;
+  width: 75%;
+  font-family: 'Century Gothic';
+}
+#form button:hover{
+  background-color: #008080;
+}
+
+#footer{
+  background-color: #79CDCD;
+  margin: 20px 0px 2px 0px;
+  color: #FFFFFF;
+  height: 120px;
+  margin top: -120px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+
+}
+#footer a{
+  color: red;
+}
+
+#footer p{
+  padding: 5px;
+  margin-left: 1%;
+}
