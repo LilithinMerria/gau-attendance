@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const studentRouter = express.Router();
 const mongoose = require('mongoose');
+const authenticate = require('../authenticate');
 
 const Student = require('../models/students');
 
 studentRouter.use(bodyParser.json());
 
-studentRouter.route('/')
+studentRouter.route('/students')
 .get((req, res, next) =>{
     Student.find({})
     .then((student) =>{
@@ -17,7 +18,7 @@ studentRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) =>{
+.post(authenticate.verifyUser, (req, res, next) =>{
     Student.create(req.body)
     .then((student) =>{
         console.log("Student created", student);
@@ -27,7 +28,7 @@ studentRouter.route('/')
     }, (err) =>next (err))
     .catch((err) => next(err));
 })
-.put((req, res, next) =>{
+.put(authenticate.verifyUser, (req, res, next) =>{
     res.statusCode = 403;
     res.end('Put is not supported on /Students');
 })

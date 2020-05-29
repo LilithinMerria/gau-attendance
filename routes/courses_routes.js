@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const courseRouter = express.Router();
 const mongoose = require('mongoose');
+const authenticate = require('../authenticate');
 
 const Course = require('../models/courses');
 
 courseRouter.use(bodyParser.json());
 
-courseRouter.route('/')
+courseRouter.route('/courses')
 .get((req, res, next) =>{
     Course.find({})
     .then((course) =>{
@@ -17,7 +18,7 @@ courseRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post((req, res, next) =>{
+.post(authenticate.verifyUser, (req, res, next) =>{
     Course.create(req.body)
     .then((course) =>{
         console.log("Course created", course);
@@ -27,11 +28,11 @@ courseRouter.route('/')
     }, (err) =>next (err))
     .catch((err) => next(err));
 })
-.put((req, res, next) =>{
+.put(authenticate.verifyUser, (req, res, next) =>{
     res.statusCode = 403;
     res.end('Put is not supported on /Courses');
 })
-.delete((req, res, next) =>{
+.delete(authenticate.verifyUser, (req, res, next) =>{
     Course.remove({})
     .then((resp) =>{
         res.statusCode = 200;

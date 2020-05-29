@@ -1,45 +1,45 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const semesterRouter = express.Router();
+const attendanceRouter = express.Router();
 const mongoose = require('mongoose');
 const authenticate = require('../authenticate');
 
-const Semester = require('../models/semesters');
+const Attendance = require('../models/attendance');
 
-semesterRouter.use(bodyParser.json());
+courseRouter.use(bodyParser.json());
 
-semesterRouter.route('/semesters')
+attendanceRouter.route('/attendances')
 .get((req, res, next) =>{
-    Semester.find({})
-    .then((semester) =>{
+    Attendance.find({})
+    .then((attendance) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(semester);
+        res.json(attendance);
     }, (err) => next(err))
     .catch((err) => next(err));
 })
 .post(authenticate.verifyUser, (req, res, next) =>{
-    Semester.create(req.body)
-    .then((semester) =>{
-        console.log("Semester created", semester);
+    Attendance.create(req.body)
+    .then((attendance) =>{
+        console.log("Course created", attendance);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(semester);
+        res.json(attendance);
     }, (err) =>next (err))
     .catch((err) => next(err));
 })
 .put(authenticate.verifyUser, (req, res, next) =>{
     res.statusCode = 403;
-    res.end('Put is not supported on /Semesters');
+    res.end('Put is not supported on /Attendances');
 })
 .delete(authenticate.verifyUser, (req, res, next) =>{
-    Semester.remove({})
+    Attendance.remove({})
     .then((resp) =>{
         res.statusCode = 200;
         res.setHeader('Context-Type', 'application/json');
-        res.json(semester);
+        res.json(attendance);
     }, (err) =>next (err))
     .catch((err) => next(err));
 });
 
-module.exports = semesterRouter;
+module.exports = attendanceRouter;
