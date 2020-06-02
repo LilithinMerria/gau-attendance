@@ -75,3 +75,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+//"start": "node ./bin/www"  (just saving this code here if I want to the application to start on my local machine)
+
