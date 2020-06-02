@@ -6,7 +6,7 @@ const authenticate = require('../authenticate');
 
 const Attendance = require('../models/attendance');
 
-courseRouter.use(bodyParser.json());
+attendanceRouter.use(bodyParser.json());
 
 attendanceRouter.route('/attendances')
 .get((req, res, next) =>{

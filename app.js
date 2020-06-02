@@ -25,6 +25,8 @@ const Course = require('./models/courses');
 const Semester = require('./models/semesters');
 const Attendance = require('./models/attendance');
 
+const port = process.env.PORT || 3000;
+
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 connect.then((db) =>{
