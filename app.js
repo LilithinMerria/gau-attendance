@@ -25,8 +25,6 @@ const Course = require('./models/courses');
 const Semester = require('./models/semesters');
 const Attendance = require('./models/attendance');
 
-const port = process.env.PORT || 3000;
-
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 connect.then((db) =>{
@@ -34,6 +32,9 @@ connect.then((db) =>{
 }, (err) => {console.log(err);});
 
 var app = express();
+app.listen(process.env.PORT || 3000, () =>{
+  console.log("Server is running correctly!");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
