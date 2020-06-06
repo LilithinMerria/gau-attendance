@@ -31,6 +31,7 @@ connect.then((db) =>{
   console.log("Connect correctly at the server");
 }, (err) => {console.log(err);});
 
+// connect to the local server or online host
 var app = express();
 app.listen(process.env.PORT || 3000, () =>{
   console.log("Server is running correctly!");
