@@ -52,7 +52,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //accessing the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/lectures', lecturerRouter);
 app.use('/students', studentRouter);
