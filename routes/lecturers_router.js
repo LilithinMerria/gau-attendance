@@ -10,7 +10,7 @@ lecturerRouter.use(bodyParser.json());
 
 lecturerRouter.route('/lecturers')
 .get((req, res, next) =>{
-    Lecturer.find({})
+    Lecturer.find(req.query)
     .then((lecturer) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

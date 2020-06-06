@@ -10,7 +10,7 @@ studentRouter.use(bodyParser.json());
 
 studentRouter.route('/students')
 .get((req, res, next) =>{
-    Student.find({})
+    Student.find(req.query)
     .then((student) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

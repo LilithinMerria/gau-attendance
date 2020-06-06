@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 //sign up authentication
-router.post('/signup', (req, res, next) => {
+router.post('users/signup', (req, res, next) => {
   User.register(new User({username: req.body.username}), 
   req.body.password, (err, user) =>{
     if (err){
@@ -32,12 +32,36 @@ router.post('/signup', (req, res, next) => {
 });
 
 // login authentication
-router.post('/login', passport.authenticate('local'), (req, res) =>{
+router.post('users/login', (req, res, next) =>{
+  passport.authenticate('local', (err, user, info) =>{
+    if (err){
+      return next(err);
+    }
+    if (!user){
+      res.statusCode = 401;
+      res.setHeader('Content-Type', 'application/json');
+      res.json({success: false, status: 'Login Unsuccessful!', err: info});
+    }
+    req.logIn(user, (err) =>{
+      if (err){
+        res.statusCode = 401;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({success: false, status: 'Login Unsuccessful!', err: "Couldn't not find the user!"});
+      }
+
+      var token = authenticate.getToken({_id: req.user._id});
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json({success: true, token: token, status: 'You are successfully logged in!'});
+    });
+  }) (req, res, next);
+});
+/*router.post('/login', passport.authenticate('local'), (req, res) =>{
   var token = authenticate.getToken({_id: req.user._id});
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.json({success: true, token: token, status: 'You are successfully logged in!'});
-});
+});*/
 
 router.get('/logout', (req, res) =>{
   if (req.session){

@@ -10,7 +10,7 @@ attendanceRouter.use(bodyParser.json());
 
 attendanceRouter.route('/attendances')
 .get((req, res, next) =>{
-    Attendance.find({})
+    Attendance.find(req.query)
     .then((attendance) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

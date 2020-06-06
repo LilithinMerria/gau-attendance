@@ -10,7 +10,7 @@ semesterRouter.use(bodyParser.json());
 
 semesterRouter.route('/semesters')
 .get((req, res, next) =>{
-    Semester.find({})
+    Semester.find(req.query)
     .then((semester) =>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
